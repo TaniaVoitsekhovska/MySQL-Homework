@@ -6,7 +6,7 @@ use library;
 create table books (
     id int not null primary key auto_increment,
     book_title varchar(120) not null,
-    description varchar(1000) default 'Описание отсутствует',
+    description varchar(1000) default 'Опис відсутній',
     publication_date date not null default '2018-01-01',
     author varchar(60) not null,
     category varchar(30) not null

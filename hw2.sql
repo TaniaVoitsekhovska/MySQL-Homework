@@ -92,6 +92,8 @@ SELECT id, book_title, category, publication_date FROM book WHERE publication_da
 SELECT id, book_title, book_price FROM book WHERE book_price BETWEEN 1.50 and 120.2;
 SELECT id, book_title, book_price FROM book WHERE book_price NOT BETWEEN 200 and 600;
 DELETE FROM book WHERE id = 2;
+SET sql_safe_updates = 0;
 DELETE FROM book WHERE author_name = 'Наталка';
+SET sql_safe_updates = 1;
 DELETE FROM book WHERE isbn = 9786176794394;
 

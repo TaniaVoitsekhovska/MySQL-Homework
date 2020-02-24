@@ -66,7 +66,9 @@ SELECT * FROM book WHERE publication_date > '2000-01-01';
 SELECT * FROM book WHERE publication_date < '2010-01-01';
 
 SELECT * FROM book;
+SET sql_safe_updates = 0;
 UPDATE book SET author_surname='Тетчер' WHERE author_surname='Флетчер';
+SET sql_safe_updates = 1;
 UPDATE book SET author_surname='Блікс' WHERE id=23;
 SELECT COUNT(*) as number_of_books FROM book  WHERE author_awards IS NOT NULL;
 

@@ -117,3 +117,74 @@ VALUES
  VALUES
  (1,1,1,3,1,5), (1,1,4,4,2,5), (3,2,5,6,1,3), (4,3,1,3,1,5), (4,3,2,5,1,4), (2,2,6,3,3,2), (6,9,7,1,1,4), (5,5,7,1,2,5);
  
+ 
+ SELECT
+ universities.name as University,
+ faculty.name as Faculty 
+ FROM university
+ JOIN universities ON university_id=universities.id
+ JOIN faculty ON faculty_id=faculty.id
+ ORDER BY universities.name;
+ 
+  SELECT
+	student.name,
+	student.surname,
+    student.email,
+    student.birthday,
+    student.phone_number, 
+	universities.name as University,
+	faculty.name as Faculty 
+ FROM student
+ JOIN universities ON university_id=universities.id
+ JOIN faculty ON faculty_id=faculty.id
+ ORDER BY student.surname;
+ 
+  SELECT
+	student.name,
+	student.surname,
+    student.email,
+    student.birthday,
+    student.phone_number, 
+	universities.name as University,
+	faculty.name as Faculty 
+ FROM student
+ JOIN universities ON university_id=universities.id
+ JOIN faculty ON faculty_id=faculty.id
+ WHERE student.birthday LIKE '2001%'
+ ORDER BY student.surname;
+ 
+ SELECT
+	universities.name as University,
+    faculty.name as Faculty, 
+	student.name,
+	student.surname,
+    subjects.name,
+	marks.number_of_attempts,
+    marks.mark
+ FROM marks
+ JOIN student ON student_id=student.id
+ JOIN universities ON university_id=universities.id
+ JOIN faculty ON marks.faculty_id=faculty.id
+ JOIN subjects ON subject_id=subjects.id
+ JOIN lecturer ON lecturer_id=lecturer.id
+ ORDER BY universities.name;
+ 
+ SELECT
+	universities.name as University,
+    faculty.name as Faculty, 
+	student.name,
+	student.surname,
+    subjects.name,
+	marks.number_of_attempts,
+    marks.mark
+ FROM marks
+ JOIN student ON student_id=student.id
+ JOIN universities ON university_id=universities.id
+ JOIN faculty ON marks.faculty_id=faculty.id
+ JOIN subjects ON subject_id=subjects.id
+ JOIN lecturer ON lecturer_id=lecturer.id
+ WHERE marks.number_of_attempts > 1
+ ORDER BY universities.name;
+ 
+ 
+ 
